@@ -1,0 +1,43 @@
+/* AI Generated Code by Deloitte + Cursor (BEGIN) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf7f2;
+  --gold: #b8860b;
+  --wine: #4a1c2c;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink antialiased;
+}
+
+.gold-gradient-text {
+  @apply bg-gradient-to-r from-gold via-gold-light to-gold-muted bg-clip-text text-transparent;
+}
+
+.pattern-soft {
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(184, 134, 11, 0.08) 0,
+      transparent 45%
+    ),
+    radial-gradient(circle at 80% 0%, rgba(74, 28, 44, 0.06) 0, transparent 40%);
+}
+
+.mesh-modern {
+  background-color: #f5f1ea;
+  background-image: radial-gradient(1200px 600px at 10% -10%, rgba(212, 175, 55, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 10%, rgba(74, 28, 44, 0.12), transparent 50%),
+    radial-gradient(800px 400px at 50% 100%, rgba(184, 134, 11, 0.08), transparent 45%);
+}
+
+.glass-card {
+  @apply rounded-[1.75rem] border border-white/60 bg-white/70 shadow-xl shadow-wine/[0.06] backdrop-blur-md;
+}
+/* AI Generated Code by Deloitte + Cursor (END) */
