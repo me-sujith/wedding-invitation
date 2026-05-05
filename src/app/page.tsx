@@ -368,7 +368,7 @@ export default function Home() {
 
       {/* Join */}
       <section className="mx-auto max-w-5xl px-6 py-24 text-center sm:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">RSVP & directions</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">{c.join.sectionLabel}</p>
         <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">{c.join.heading}</h2>
         <div className="mx-auto mt-3 flex items-center gap-4 max-w-xs">
           <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/15" aria-hidden />
@@ -376,28 +376,42 @@ export default function Home() {
           <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
         </div>
         <p className="mx-auto mt-3 max-w-lg font-display italic text-ink/55">{c.join.subheading}</p>
-        <div className="mx-auto mt-12 flex max-w-xl flex-col gap-4 sm:flex-row sm:justify-center">
+        <div className="mx-auto mt-12 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
+          {/* RSVP Form */}
           <a
-            href={c.join.directions.href}
+            href={c.join.rsvp.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card group inline-flex flex-1 flex-col items-center justify-center px-8 py-8 transition hover:border-gold/40 hover:shadow-glow"
+            className="glass-card group flex flex-col items-center justify-center px-6 py-8 transition hover:border-gold/40"
           >
-            <svg className="h-7 w-7 text-wine transition group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <span className="mt-3 font-display text-base font-semibold gold-gradient-text">{c.join.directions.label}</span>
-            <span className="mt-1 text-xs font-medium tracking-wide text-ink/50">{c.join.directions.venueShort}</span>
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-wine/10 bg-wine/[0.04] transition group-hover:bg-wine/[0.08]">
+              <svg className="h-5 w-5 text-wine" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                <rect x="9" y="3" width="6" height="4" rx="1"/>
+                <path d="M9 12h6M9 16h4"/>
+              </svg>
+            </span>
+            <span className="mt-4 font-display text-base font-semibold gold-gradient-text">{c.join.rsvp.label}</span>
+            <span className="mt-1 text-xs font-medium tracking-wide text-ink/50">{c.join.rsvp.sublabel}</span>
           </a>
+          {/* WhatsApp RSVP */}
           <a
-            href={`https://wa.me/${c.join.whatsapp.phoneE164}`}
+            href={`https://wa.me/${c.join.whatsapp.phoneE164}?text=${encodeURIComponent(c.join.whatsapp.prefillText)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card group inline-flex flex-1 flex-col items-center justify-center px-8 py-8 transition hover:border-gold/40 hover:shadow-glow"
+            className="glass-card group flex flex-col items-center justify-center px-6 py-8 transition hover:border-gold/40"
           >
-            <svg className="h-7 w-7 text-wine transition group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M21 11.5A8.38 8.38 0 0 1 12.5 20a8.5 8.5 0 0 1-4.36-1.19L3 20l1.19-5.14A8.5 8.5 0 1 1 21 11.5z"/></svg>
-            <span className="mt-3 font-display text-base font-semibold gold-gradient-text">{c.join.whatsapp.label}</span>
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-wine/10 bg-wine/[0.04] transition group-hover:bg-wine/[0.08]">
+              <svg className="h-5 w-5 text-wine" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                <path d="M21 11.5A8.38 8.38 0 0 1 12.5 20a8.5 8.5 0 0 1-4.36-1.19L3 20l1.19-5.14A8.5 8.5 0 1 1 21 11.5z"/>
+                <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1zm0 0c0 2.21 1.79 4 4 4m4-4a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm0 0c0-2.21-1.79-4-4-4"/>
+              </svg>
+            </span>
+            <span className="mt-4 font-display text-base font-semibold gold-gradient-text">{c.join.whatsapp.label}</span>
             <span className="mt-1 text-xs font-medium tracking-wide text-ink/50">{c.join.whatsapp.sublabel}</span>
           </a>
         </div>
+        <p className="mx-auto mt-8 max-w-sm text-xs font-medium italic text-ink/45">{c.join.note}</p>
       </section>
 
       <footer className="border-t border-wine/10 bg-wine/[0.03] py-12 text-center">

@@ -187,19 +187,28 @@ export const weddingContent = {
   },
 
   join: {
-    heading: "Join Us",
-    subheading: "We look forward to celebrating with you",
+    sectionLabel: "Join the celebration",
+    heading: "Let Us Know You're Coming",
+    subheading: "Please confirm your attendance through Google Form or WhatsApp.",
+    note: "We kindly request your RSVP at the earliest to help us plan better.",
     directions: {
       label: "Get Directions",
       /** Full Google Maps URL or search URL */
       href: "https://maps.google.com/?q=Clouds+Village+Resort+Vannappuram+Kerala",
       venueShort: "Clouds Village Resort",
     },
+    rsvp: {
+      label: "RSVP Form",
+      sublabel: "Submit your response in 1 minute",
+      href: "https://forms.gle/EpckEV6rqWAmEDMo6",
+    },
     whatsapp: {
-      label: "WhatsApp Us",
-      sublabel: "Send your wishes",
+      label: "WhatsApp RSVP",
+      sublabel: "Tap and fill the details",
       /** E.164 without + e.g. 917560989490 */
       phoneE164: "917560989490",
+      prefillText:
+        "RSVP - Megha & Sreedev (May 10, 2026)\nName:\nPhone:\nNumber of guests attending (including me):\nFunctions attending (Wedding / Reception / Both):\nAny dietary preferences:",
     },
   },
 
