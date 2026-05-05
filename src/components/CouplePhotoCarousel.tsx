@@ -53,10 +53,10 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
       <div className="mx-auto max-w-5xl">
         <div className="mb-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">Gallery</p>
-          <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">
-            {heading}
+          <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <span className="gold-gradient-text">{heading}</span>
           </h2>
-          {subheading ? <p className="mt-2 text-ink/55">{subheading}</p> : null}
+          {subheading ? <p className="mt-2 font-display italic text-ink/55">{subheading}</p> : null}
         </div>
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/40 shadow-2xl shadow-wine/10 ring-1 ring-wine/5 backdrop-blur-xl">

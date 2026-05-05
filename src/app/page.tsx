@@ -41,13 +41,13 @@ export default function Home() {
             <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/20" aria-hidden />
           </div>
 
-          <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.38em] text-wine/80">{c.familiesLine}</p>
-          <h1 className="mt-4 font-display text-[2.35rem] font-bold leading-[1.15] tracking-tight text-wine sm:text-5xl md:text-6xl lg:text-[3.5rem]">
+          <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.28em] text-wine/80 sm:text-[11px] sm:tracking-[0.38em]">{c.familiesLine}</p>
+          <h1 className="mt-4 font-display font-bold leading-[1.15] tracking-tight text-wine" style={{ fontSize: 'clamp(1rem, 5.5vw, 3.5rem)' }}>
             <span className="gold-gradient-text">{c.couple.bride}</span>
-            <span className="mx-3 inline-block font-semibold text-wine/70">{c.couple.conjunction}</span>
+            <span className="mx-1 inline-block font-semibold text-wine/70 sm:mx-3">{c.couple.conjunction}</span>
             <span className="gold-gradient-text">{c.couple.groom}</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl font-display text-base italic leading-relaxed text-ink/60 sm:text-lg">{c.inviteLine}</p>
+          <p className="mx-auto mt-4 max-w-xl font-display text-sm italic leading-relaxed text-ink/60 sm:mt-6 sm:text-lg">{c.inviteLine}</p>
 
           {/* Date card */}
           <div className="mx-auto mt-10 max-w-md rounded-2xl border border-gold/20 bg-white/55 px-8 py-7 shadow-glow backdrop-blur-md">
@@ -81,19 +81,27 @@ export default function Home() {
         <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl md:text-[2.5rem]">
           {c.countdown.heading}
         </h2>
-        <p className="mx-auto mt-3 max-w-lg text-ink/55">{c.countdown.subheading}</p>
+        <div className="mx-auto mt-4 flex items-center gap-4 max-w-xs">
+          <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/15" aria-hidden />
+          <span className="text-gold/50 text-xs">✦</span>
+          <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
+        </div>
+        <p className="mx-auto mt-3 max-w-lg font-display italic text-ink/55">{c.countdown.subheading}</p>
         <div className="mt-12">
           <Countdown targetIso={c.mainEvent.countdownIso} labels={c.countdown.labels} />
         </div>
       </section>
 
       {/* About */}
-      <section className="border-t border-white/40 bg-white/40 px-6 py-24 backdrop-blur-sm sm:px-8">
+      <section className="px-6 py-24 sm:px-8">
         <div className="mx-auto max-w-5xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-gold">Our families</p>
-          <h2 className="mt-2 text-center font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">
-            {c.about.heading}
-          </h2>
+          <h2 className="mt-2 text-center font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">{c.about.heading}</h2>
+          <div className="mx-auto mt-4 flex items-center gap-4 max-w-xs">
+            <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/15" aria-hidden />
+            <span className="text-gold/50 text-xs">✦</span>
+            <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
+          </div>
           <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2">
             {c.about.people.map((p) => (
               <article key={p.name} className="glass-card flex flex-col items-center p-9 sm:p-10">
@@ -110,103 +118,189 @@ export default function Home() {
       </section>
 
       {/* Ceremonies */}
-      <section className="mx-auto max-w-5xl px-6 py-24 sm:px-8">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-gold">Schedule</p>
-        <h2 className="mt-2 text-center font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">
-          {c.ceremonies.heading}
-        </h2>
-        <div className="mx-auto mt-14 flex max-w-3xl flex-col gap-8">
-          {c.ceremonies.items.map((ev) => (
-            <article key={ev.id} className="glass-card p-9 sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-gold">{ev.title}</p>
-              {ev.subtitle ? (
-                <h3 className="mt-3 font-display text-2xl font-semibold text-wine">{ev.subtitle}</h3>
-              ) : null}
-              <ul className="mt-8 space-y-4 text-left text-ink/75">
-                <li className="flex gap-3 text-[15px] leading-relaxed">
-                  <span className="shrink-0 text-lg" aria-hidden>
-                    📅
-                  </span>
-                  <span>{ev.dateLine}</span>
-                </li>
-                <li className="flex gap-3 text-[15px] leading-relaxed">
-                  <span className="shrink-0 text-lg" aria-hidden>
-                    ⏰
-                  </span>
-                  <span>{ev.timeLine}</span>
-                </li>
-                <li className="flex gap-3 text-[15px] leading-relaxed">
-                  <span className="shrink-0 text-lg" aria-hidden>
-                    📍
-                  </span>
-                  <span>{ev.venueLine}</span>
-                </li>
-              </ul>
-              {ev.mapsQueryOrUrl ? (
-                <div className="mt-8 flex flex-col items-center gap-2 border-t border-wine/10 pt-8">
-                  <a
-                    href={ev.mapsQueryOrUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-2"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(ev.mapsQueryOrUrl)}&color=5b1a24&bgcolor=fffaf5`}
-                      alt={`Scan to get directions to ${ev.venueLine}`}
-                      width={160}
-                      height={160}
-                      className="rounded-xl border border-wine/10 shadow-md"
-                    />
-                    <span className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-wine/60 hover:text-wine transition">
-                      Scan or tap for directions
-                    </span>
-                  </a>
+      <section className="px-6 py-24 sm:px-8">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-gold">Schedule</p>
+          <h2 className="mt-2 text-center font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">
+            {c.ceremonies.heading}
+          </h2>
+          <div className="mx-auto mt-4 flex items-center gap-4 max-w-xs">
+            <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/15" aria-hidden />
+            <span className="text-gold/50 text-xs">✦</span>
+            <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
+          </div>
+
+          <div className="mx-auto mt-14 flex flex-col gap-8 max-w-4xl">
+            {c.ceremonies.items.map((ev) => {
+              const isWedding = ev.id === "vivah";
+              return (
+              <article key={ev.id} className="glass-card overflow-hidden">
+                {/* Gold accent strip — stronger */}
+                <div className="h-[4px] w-full bg-gradient-to-r from-gold/30 via-gold-light via-50% to-gold/30" />
+
+                <div className="flex flex-col sm:flex-row">
+                  {/* Left identity panel */}
+                  <div className="relative flex shrink-0 flex-col items-center justify-center gap-3 border-b border-wine/[0.07] px-8 py-10 text-center sm:w-56 sm:border-b-0 sm:border-r sm:py-12">
+                    <div className="pointer-events-none absolute inset-0"
+                      style={{ background: "radial-gradient(ellipse at 50% 35%, rgba(184,134,11,0.13) 0%, transparent 70%)" }}
+                      aria-hidden />
+
+                    {/* Icon badge — larger with double ring */}
+                    <div className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-gold/20 bg-gradient-to-br from-gold/10 to-gold/[0.02] shadow-md shadow-gold/10">
+                      <div className="absolute inset-[5px] rounded-full border border-gold/10" aria-hidden />
+                      {isWedding ? (
+                        <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10" aria-hidden>
+                          <circle cx="17" cy="28" r="10" stroke="url(#gr1)" strokeWidth="3"/>
+                          <circle cx="31" cy="28" r="10" stroke="url(#gr2)" strokeWidth="3"/>
+                          <path d="M13 16 Q17 10 21 16" stroke="url(#gr1)" strokeWidth="2.6" strokeLinecap="round" fill="none"/>
+                          <path d="M27 16 Q31 10 35 16" stroke="url(#gr2)" strokeWidth="2.6" strokeLinecap="round" fill="none"/>
+                          <defs>
+                            <linearGradient id="gr1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#7a5200"/><stop offset="100%" stopColor="#c9960a"/></linearGradient>
+                            <linearGradient id="gr2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#c9960a"/><stop offset="100%" stopColor="#a87200"/></linearGradient>
+                          </defs>
+                        </svg>
+                      ) : (
+                        <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10" aria-hidden>
+                          <path d="M24 8 L26.5 16H35L28.5 21L31 29L24 24L17 29L19.5 21L13 16H21.5Z" stroke="url(#gr3)" strokeWidth="2" strokeLinejoin="round" fill="rgba(184,134,11,0.10)"/>
+                          <circle cx="10" cy="12" r="2" fill="#c9960a" opacity="0.7"/>
+                          <circle cx="38" cy="14" r="1.5" fill="#c9960a" opacity="0.6"/>
+                          <circle cx="36" cy="36" r="2" fill="#c9960a" opacity="0.5"/>
+                          <circle cx="12" cy="34" r="1.5" fill="#c9960a" opacity="0.5"/>
+                          <defs>
+                            <linearGradient id="gr3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#7a5200"/><stop offset="100%" stopColor="#c9960a"/></linearGradient>
+                          </defs>
+                        </svg>
+                      )}
+                    </div>
+
+                    <div className="h-px w-12 bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
+                    <p className="text-[9px] font-bold uppercase tracking-[0.5em] text-gold/60">{ev.title}</p>
+                    <h3 className="font-display text-xl font-semibold leading-snug text-wine">{ev.subtitle ?? ev.title}</h3>
+                    {/* Date pill in left panel */}
+                    <div className="mt-1 inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-gold/[0.07] px-3 py-1">
+                      <svg className="h-3 w-3 text-gold/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                      <span className="text-[10px] font-semibold text-gold/80">{ev.dateLine.replace(/Sunday, /i, "").replace(/th,|st,|nd,|rd,/, ",")}</span>
+                    </div>
+                  </div>
+
+                  {/* Middle: details */}
+                  <div className="flex flex-1 flex-col justify-center divide-y divide-wine/[0.06] px-8 sm:px-10">
+                    {/* Date row */}
+                    <div className="flex items-center gap-4 py-5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/[0.07]">
+                        <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                      </div>
+                      <div>
+                        <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-gold/55">Date</p>
+                        <p className="mt-0.5 text-sm font-semibold text-ink/80">{ev.dateLine}</p>
+                      </div>
+                    </div>
+                    {/* Time row */}
+                    <div className="flex items-center gap-4 py-5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/[0.07]">
+                        <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                      </div>
+                      <div>
+                        <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-gold/55">Time</p>
+                        <p className="mt-0.5 text-sm font-semibold text-ink/80">{ev.timeLine}</p>
+                      </div>
+                    </div>
+                    {/* Venue row */}
+                    <div className="flex items-center gap-4 py-5">
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-wine/15 bg-wine/[0.05]">
+                        <svg className="h-4 w-4 text-wine/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                      </div>
+                      <div>
+                        <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-wine/40">Venue</p>
+                        <p className="mt-0.5 text-sm font-semibold text-ink/80">{ev.venueLine}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right: QR */}
+                  {ev.mapsQueryOrUrl ? (
+                    <div className="flex flex-col items-center justify-center gap-3 border-t border-wine/[0.07] bg-gradient-to-b from-gold/[0.05] to-transparent px-8 py-8 sm:w-48 sm:border-l sm:border-t-0 sm:px-6">
+                      <p className="text-[9px] font-bold uppercase tracking-[0.35em] text-ink/35">Scan / Tap</p>
+                      <a
+                        href={ev.mapsQueryOrUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex flex-col items-center gap-3"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={`https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=${encodeURIComponent(ev.mapsQueryOrUrl)}&color=7a5200&bgcolor=faf7f2`}
+                          alt={`Directions to ${ev.venueLine}`}
+                          width={130}
+                          height={130}
+                          className="rounded-2xl border-2 border-gold/25 shadow-md shadow-gold/10 transition group-hover:border-gold/55 group-hover:shadow-glow"
+                        />
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-wine/20 bg-wine/[0.06] px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-wine/65 transition group-hover:border-wine/40 group-hover:text-wine">
+                          <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                          Directions
+                        </span>
+                      </a>
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
-            </article>
-          ))}
+              </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Quote */}
-      <section className="border-y border-white/50 bg-gradient-to-b from-cream to-white/60 px-6 py-20 text-center sm:px-8">
-        <p className="font-display text-4xl text-gold">{c.quote.symbol}</p>
-        <blockquote className="mx-auto mt-8 max-w-2xl font-display text-xl font-medium italic leading-relaxed text-wine/90 sm:text-2xl">
+      <section className="border-y border-gold/15 bg-gradient-to-b from-cream/80 to-white/40 px-6 py-20 text-center sm:px-8">
+        <div className="flex flex-col items-center">
+          <p className="gold-gradient-text font-display text-5xl" style={{filter:'drop-shadow(0 1px 8px rgba(184,134,11,0.3))'}}>{c.quote.symbol}</p>
+          <div className="mt-3 flex items-center gap-4 max-w-xs mx-auto">
+            <span className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/30" aria-hidden />
+            <span className="text-gold/40 text-xs">✦</span>
+            <span className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/30" aria-hidden />
+          </div>
+        </div>
+        <blockquote className="mx-auto mt-8 max-w-2xl font-display text-xl font-medium italic leading-relaxed text-wine/85 sm:text-2xl">
           {c.quote.text}
         </blockquote>
-        <p className="mt-10 text-sm text-ink/50">{c.quote.closingLine}</p>
+        <div className="mt-8 flex items-center gap-4 max-w-xs mx-auto">
+          <span className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/25" aria-hidden />
+          <span className="text-gold/40 text-xs">✦</span>
+          <span className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/25" aria-hidden />
+        </div>
+        <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-ink/40">{c.quote.closingLine}</p>
       </section>
 
       {/* Join */}
       <section className="mx-auto max-w-5xl px-6 py-24 text-center sm:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">RSVP & directions</p>
         <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">{c.join.heading}</h2>
-        <p className="mx-auto mt-3 max-w-lg text-ink/55">{c.join.subheading}</p>
+        <div className="mx-auto mt-3 flex items-center gap-4 max-w-xs">
+          <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/15" aria-hidden />
+          <span className="text-gold/50 text-xs">✦</span>
+          <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
+        </div>
+        <p className="mx-auto mt-3 max-w-lg font-display italic text-ink/55">{c.join.subheading}</p>
         <div className="mx-auto mt-12 flex max-w-xl flex-col gap-4 sm:flex-row sm:justify-center">
           <a
             href={c.join.directions.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card group inline-flex flex-1 flex-col items-center justify-center px-8 py-7 text-wine transition hover:border-gold/40 hover:shadow-glow"
+            className="glass-card group inline-flex flex-1 flex-col items-center justify-center px-8 py-8 transition hover:border-gold/40 hover:shadow-glow"
           >
-            <span className="text-2xl transition group-hover:scale-105" aria-hidden>
-              📍
-            </span>
-            <span className="mt-3 font-semibold">{c.join.directions.label}</span>
-            <span className="mt-1 text-sm text-ink/50">{c.join.directions.venueShort}</span>
+            <svg className="h-7 w-7 text-wine transition group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span className="mt-3 font-display text-base font-semibold gold-gradient-text">{c.join.directions.label}</span>
+            <span className="mt-1 text-xs font-medium tracking-wide text-ink/50">{c.join.directions.venueShort}</span>
           </a>
           <a
             href={`https://wa.me/${c.join.whatsapp.phoneE164}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card group inline-flex flex-1 flex-col items-center justify-center px-8 py-7 text-wine transition hover:border-gold/40 hover:shadow-glow"
+            className="glass-card group inline-flex flex-1 flex-col items-center justify-center px-8 py-8 transition hover:border-gold/40 hover:shadow-glow"
           >
-            <span className="text-2xl transition group-hover:scale-105" aria-hidden>
-              💬
-            </span>
-            <span className="mt-3 font-semibold">{c.join.whatsapp.label}</span>
-            <span className="mt-1 text-sm text-ink/50">{c.join.whatsapp.sublabel}</span>
+            <svg className="h-7 w-7 text-wine transition group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M21 11.5A8.38 8.38 0 0 1 12.5 20a8.5 8.5 0 0 1-4.36-1.19L3 20l1.19-5.14A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <span className="mt-3 font-display text-base font-semibold gold-gradient-text">{c.join.whatsapp.label}</span>
+            <span className="mt-1 text-xs font-medium tracking-wide text-ink/50">{c.join.whatsapp.sublabel}</span>
           </a>
         </div>
       </section>
