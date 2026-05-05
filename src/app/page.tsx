@@ -1,4 +1,5 @@
 // AI Generated Code by Deloitte + Cursor (BEGIN)
+import React from "react";
 import { Countdown } from "@/components/Countdown";
 import { CouplePhotoCarousel } from "@/components/CouplePhotoCarousel";
 import { weddingContent as c } from "@/content/weddingContent";
@@ -102,17 +103,76 @@ export default function Home() {
             <span className="text-gold/50 text-xs">✦</span>
             <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
           </div>
-          <div className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2">
-            {c.about.people.map((p) => (
-              <article key={p.name} className="glass-card flex flex-col items-center p-9 sm:p-10">
-                <span className="text-4xl" aria-hidden>
-                  {p.emoji}
-                </span>
-                <h3 className="mt-5 font-display text-2xl font-semibold gold-gradient-text">{p.name}</h3>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-wine/50">{p.relationLabel}</p>
-                <ParentsLines text={p.parents} />
-              </article>
-            ))}
+
+          {/* Single unified card — two halves */}
+          <div className="glass-card mx-auto mt-14 max-w-3xl overflow-hidden">
+            <div className="h-[4px] w-full bg-gradient-to-r from-gold/30 via-gold-light via-50% to-gold/30" />
+            <div className="flex flex-col sm:flex-row">
+
+              {/* Bride */}
+              <div className="relative flex flex-1 flex-col items-center px-10 py-12 text-center">
+                <div className="pointer-events-none absolute inset-0"
+                  style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.08) 0%, transparent 60%)" }}
+                  aria-hidden />
+                {/* Ornament */}
+                <svg viewBox="0 0 56 32" fill="none" className="h-7 w-14 opacity-60" aria-hidden>
+                  <path d="M28 30 C22 22 10 20 10 12 C10 6 16 4 20 8 C22 4 25 2 28 4 C31 2 34 4 36 8 C40 4 46 6 46 12 C46 20 34 22 28 30Z"
+                    stroke="url(#ob1)" strokeWidth="1.4" fill="rgba(184,134,11,0.06)" strokeLinejoin="round"/>
+                  <defs>
+                    <linearGradient id="ob1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#7a5200"/><stop offset="100%" stopColor="#c9960a"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <h3 className="mt-5 font-display text-3xl font-semibold gold-gradient-text">{c.about.people[0].name}</h3>
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.4em] text-wine/40">{c.about.people[0].relationLabel}</p>
+                <div className="mt-5 h-px w-10 bg-gradient-to-r from-transparent via-gold/35 to-transparent" aria-hidden />
+                <p className="mt-5 text-sm leading-[1.85] text-ink/60 whitespace-pre-line">{c.about.people[0].parents}</p>
+              </div>
+
+              {/* Centre divider */}
+              <div className="flex items-center sm:flex-col sm:justify-center">
+                {/* Mobile: horizontal */}
+                <div className="mx-8 flex flex-1 items-center gap-3 sm:hidden">
+                  <span className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/25" />
+                  <span className="font-display text-xl text-gold/40">✦</span>
+                  <span className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/25" />
+                </div>
+                {/* Desktop: vertical */}
+                <div className="hidden sm:flex flex-col items-center gap-3 py-12">
+                  <div className="w-px flex-1 bg-gradient-to-b from-transparent to-gold/25" />
+                  <span className="font-display text-lg text-gold/40">✦</span>
+                  <div className="w-px flex-1 bg-gradient-to-t from-transparent to-gold/25" />
+                </div>
+              </div>
+
+              {/* Groom */}
+              <div className="relative flex flex-1 flex-col items-center px-10 py-12 text-center">
+                <div className="pointer-events-none absolute inset-0"
+                  style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.08) 0%, transparent 60%)" }}
+                  aria-hidden />
+                {/* Ornament */}
+                <svg viewBox="0 0 56 32" fill="none" className="h-7 w-14 opacity-60" aria-hidden>
+                  <circle cx="21" cy="20" r="9" stroke="url(#ob2)" strokeWidth="1.5"/>
+                  <circle cx="35" cy="20" r="9" stroke="url(#ob3)" strokeWidth="1.5"/>
+                  <path d="M17 10 Q21 5 25 10" stroke="url(#ob2)" strokeWidth="1.4" strokeLinecap="round" fill="none"/>
+                  <path d="M31 10 Q35 5 39 10" stroke="url(#ob3)" strokeWidth="1.4" strokeLinecap="round" fill="none"/>
+                  <defs>
+                    <linearGradient id="ob2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#7a5200"/><stop offset="100%" stopColor="#c9960a"/>
+                    </linearGradient>
+                    <linearGradient id="ob3" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor="#c9960a"/><stop offset="100%" stopColor="#a87200"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <h3 className="mt-5 font-display text-3xl font-semibold gold-gradient-text">{c.about.people[1].name}</h3>
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.4em] text-wine/40">{c.about.people[1].relationLabel}</p>
+                <div className="mt-5 h-px w-10 bg-gradient-to-r from-transparent via-gold/35 to-transparent" aria-hidden />
+                <p className="mt-5 text-sm leading-[1.85] text-ink/60 whitespace-pre-line">{c.about.people[1].parents}</p>
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
