@@ -76,12 +76,12 @@ export const weddingContent = {
 
   /**
    * Couple photo gallery — replace `src` with your images (public/ paths or any https host; add host to next.config images.remotePatterns if needed).
-   * Arrows move slides; autoplay advances every `autoplayIntervalMs` (default 3s).
+   * Arrows move slides; autoplay advances every `autoplayIntervalMs` (default 4s).
    */
   coupleGallery: {
     heading: "Megha & Sreedev",
     subheading: "Moments we cannot wait to share with you",
-    autoplayIntervalMs: 2000,
+    autoplayIntervalMs: 4000,
     images: [
       {
         id: "g1",
@@ -193,8 +193,8 @@ export const weddingContent = {
     whatsapp: {
       label: "WhatsApp Us",
       sublabel: "Send your wishes",
-      /** E.164 without + e.g. 919876543210 */
-      phoneE164: "919876543210",
+      /** E.164 without + e.g. 917560989490 */
+      phoneE164: "917560989490",
     },
   },
 

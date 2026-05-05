@@ -19,7 +19,6 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
 
   const len = images.length;
   const safeIndex = len > 0 ? index % len : 0;
-  const current = len > 0 ? images[safeIndex] : null;
 
   const go = useCallback(
     (delta: number) => {
@@ -35,7 +34,7 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
       setIndex((i) => (i + 1) % len);
     }, autoplayIntervalMs);
     return () => window.clearInterval(id);
-  }, [len, paused, autoplayIntervalMs, safeIndex]);
+  }, [len, paused, autoplayIntervalMs]);
 
   if (len === 0) {
     return null;
@@ -62,18 +61,22 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/40 shadow-2xl shadow-wine/10 ring-1 ring-wine/5 backdrop-blur-xl">
           <div className="relative aspect-[4/5] w-full sm:aspect-[16/10] lg:aspect-[2/1]">
-            {current ? (
+            {/* Stack all slides so the next frame is already decoded — avoids blank flash on swap (no unmount/remount). */}
+            {images.map((img, i) => (
               <Image
-                key={current.id}
-                src={current.src}
-                alt={current.alt}
+                key={img.id}
+                src={img.src}
+                alt={i === safeIndex ? img.alt : ""}
                 fill
-                className="object-cover object-center transition-opacity duration-500"
+                className={`object-cover object-center ${
+                  i === safeIndex ? "z-[2] opacity-100" : "z-[1] opacity-0"
+                }`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
-                priority={safeIndex === 0}
+                priority={i === 0}
+                loading="eager"
                 draggable={false}
               />
-            ) : null}
+            ))}
             <div
               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-ink/10"
               aria-hidden
@@ -118,12 +121,6 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
             </div>
           ) : null}
         </div>
-
-        {len > 1 ? (
-          <p className="mt-4 text-center text-xs text-ink/45">
-            Auto-advance every {(autoplayIntervalMs / 1000).toFixed(0)}s · pauses on hover · use arrows to browse
-          </p>
-        ) : null}
       </div>
     </section>
   );
