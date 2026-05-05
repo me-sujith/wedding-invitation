@@ -35,7 +35,7 @@ export const weddingContent = {
   meta: {
     title: "Megha & Sreedev — Wedding Invitation",
     description:
-      "Together with our families, Megha Das and Sreedev K Anil invite you to celebrate their wedding.",
+      "Mr. K G Anil & Mrs. Joyamma Anil cordially invite you to the wedding of their son Sreedev K Anil with Megha Das, daughter of Mr. K M Mohan Das & Mrs. Beena Mohandas.",
   },
 
   /** Shown near the top (Devanagari om is optional) */
@@ -53,17 +53,17 @@ export const weddingContent = {
     conjunction: "&",
   },
 
-  inviteLine: "cordially invite you to celebrate our wedding",
+  inviteLine: "cordially invite your esteemed presence with family at the wedding ceremony",
 
   /** Primary ceremony card + hero date string */
   mainEvent: {
     /** Short form for hero, e.g. "June 21, 2026" */
-    dateShort: "June 21, 2026",
+    dateShort: "May 10, 2026",
     /** ISO string for countdown (include timezone for accuracy) */
-    countdownIso: "2026-06-21T10:45:00+05:30",
-    weekdayTimeLine: "Sunday · 10:45 AM",
-    venueName: "Your Venue Name",
-    venueArea: "City, State",
+    countdownIso: "2026-05-10T11:28:00+05:30",
+    weekdayTimeLine: "Sunday · 11:28 AM",
+    venueName: "Clouds Village Resort",
+    venueArea: "Vannappuram",
   },
 
   heroTagline: {
@@ -71,7 +71,7 @@ export const weddingContent = {
     line2: "one journey",
     footerNames: "Megha & Sreedev",
     footerLine: "Forever begins here",
-    locationBadge: "Your City",
+    locationBadge: "Vannappuram",
   },
 
   /**
@@ -81,27 +81,42 @@ export const weddingContent = {
   coupleGallery: {
     heading: "Megha & Sreedev",
     subheading: "Moments we cannot wait to share with you",
-    autoplayIntervalMs: 3000,
+    autoplayIntervalMs: 2000,
     images: [
       {
         id: "g1",
-        src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80",
-        alt: "Couple celebrating — replace with your photo",
+        src: "/main/IMG-20260504-WA0022.jpg",
+        alt: "Megha & Sreedev",
       },
       {
         id: "g2",
-        src: "https://images.unsplash.com/photo-1522673606560-13136edb3186?auto=format&fit=crop&w=1600&q=80",
-        alt: "Couple outdoors — replace with your photo",
+        src: "/main/IMG-20260504-WA0023.jpg",
+        alt: "Megha & Sreedev",
       },
       {
         id: "g3",
-        src: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1600&q=80",
-        alt: "Wedding celebration — replace with your photo",
+        src: "/main/IMG-20260504-WA0024.jpg",
+        alt: "Megha & Sreedev",
       },
       {
         id: "g4",
-        src: "https://images.unsplash.com/photo-1529636799528-3f6769be1717?auto=format&fit=crop&w=1600&q=80",
-        alt: "Together — replace with your photo",
+        src: "/main/IMG-20260504-WA0025.jpg",
+        alt: "Megha & Sreedev",
+      },
+      {
+        id: "g5",
+        src: "/main/IMG-20260504-WA0026.jpg",
+        alt: "Megha & Sreedev",
+      },
+      {
+        id: "g6",
+        src: "/main/IMG-20260504-WA0027.jpg",
+        alt: "Megha & Sreedev",
+      },
+      {
+        id: "g7",
+        src: "/main/IMG-20260504-WA0028.jpg",
+        alt: "Megha & Sreedev",
       },
     ] satisfies CoupleGalleryImage[],
   },
@@ -124,13 +139,13 @@ export const weddingContent = {
       {
         name: "Megha Das",
         relationLabel: "Beloved daughter of",
-        parents: "Mr. Parent Name\n& Mrs. Parent Name",
+        parents: "Mr. K M Mohan Das & Mrs. Beena Mohandas\nAreepparayil (H), Kanjikuzhy P.O\nKanjikuzhy, Idukki",
         emoji: "🌸",
       },
       {
         name: "Sreedev K Anil",
         relationLabel: "Beloved son of",
-        parents: "Mr. Parent Name\n& Mrs. Parent Name",
+        parents: "Mr. K G Anil & Mrs. Joyamma Anil (Late)\nKunnumpurath (H), Vannappuram P.O\nVannappuram",
         emoji: "💍",
       },
     ] satisfies PersonBlock[],
@@ -143,10 +158,19 @@ export const weddingContent = {
         id: "vivah",
         title: "Wedding",
         subtitle: "Vivah Ceremony",
-        dateLine: "Sunday, June 21st, 2026",
-        timeLine: "Muhoortham: 10:45 AM – 11:30 AM",
-        venueLine: "Your Venue Name, Your Area, Your City",
-        mapsQueryOrUrl: "https://maps.google.com/?q=Your+Venue+City",
+        dateLine: "Sunday, May 10th, 2026",
+        timeLine: "Muhoortham: 11:28 AM – 12:05 PM",
+        venueLine: "Clouds Village Resort, Vannappuram",
+        mapsQueryOrUrl: "https://maps.google.com/?q=Clouds+Village+Resort+Vannappuram+Kerala",
+      },
+      {
+        id: "reception",
+        title: "Reception",
+        subtitle: "Wedding Reception",
+        dateLine: "Sunday, May 10th, 2026",
+        timeLine: "05:30 PM – 09:00 PM",
+        venueLine: "Nambiaparambil Convention Centre, Kaliyar",
+        mapsQueryOrUrl: "https://maps.google.com/?q=Nambiaparambil+Convention+Centre+Kaliyar+Kerala",
       },
     ] satisfies Ceremony[],
   },
@@ -163,8 +187,8 @@ export const weddingContent = {
     directions: {
       label: "Get Directions",
       /** Full Google Maps URL or search URL */
-      href: "https://maps.google.com/?q=Your+Venue+City",
-      venueShort: "Your Venue Name",
+      href: "https://maps.google.com/?q=Clouds+Village+Resort+Vannappuram+Kerala",
+      venueShort: "Clouds Village Resort",
     },
     whatsapp: {
       label: "WhatsApp Us",

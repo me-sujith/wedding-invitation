@@ -148,6 +148,28 @@ export default function Home() {
                   <span>{ev.venueLine}</span>
                 </li>
               </ul>
+              {ev.mapsQueryOrUrl ? (
+                <div className="mt-8 flex flex-col items-center gap-2 border-t border-wine/10 pt-8">
+                  <a
+                    href={ev.mapsQueryOrUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-2"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(ev.mapsQueryOrUrl)}&color=5b1a24&bgcolor=fffaf5`}
+                      alt={`Scan to get directions to ${ev.venueLine}`}
+                      width={160}
+                      height={160}
+                      className="rounded-xl border border-wine/10 shadow-md"
+                    />
+                    <span className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-wine/60 hover:text-wine transition">
+                      Scan or tap for directions
+                    </span>
+                  </a>
+                </div>
+              ) : null}
             </article>
           ))}
         </div>
