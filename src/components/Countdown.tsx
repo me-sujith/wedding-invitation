@@ -12,6 +12,44 @@ function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
 
+function Unit({ value, label, muted }: { value: string; label: string; muted?: boolean }) {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <span
+        className="font-display font-bold leading-none"
+        style={
+          muted
+            ? { fontSize: "clamp(2rem, 8vw, 3.25rem)", color: "rgba(74,28,44,0.15)" }
+            : {
+                fontSize: "clamp(2rem, 8vw, 3.25rem)",
+                background: "linear-gradient(135deg, #7a5200, #c9960a, #a87200)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter: "drop-shadow(0 1px 8px rgba(184,134,11,0.20))",
+              }
+        }
+      >
+        {value}
+      </span>
+      <span className="text-[7.5px] font-bold uppercase tracking-[0.42em] text-ink/35 sm:text-[8.5px]">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function Colon() {
+  return (
+    <span
+      className="mb-4 self-end font-display font-light leading-none"
+      style={{ fontSize: "clamp(1.25rem, 4vw, 2rem)", color: "rgba(184,134,11,0.28)" }}
+      aria-hidden
+    >
+      :
+    </span>
+  );
+}
+
 export function Countdown({ targetIso, labels }: Props) {
   const target = useMemo(() => new Date(targetIso).getTime(), [targetIso]);
   const [mounted, setMounted] = useState(false);
@@ -24,57 +62,44 @@ export function Countdown({ targetIso, labels }: Props) {
     return () => window.clearInterval(id);
   }, []);
 
-  const invalid = !Number.isFinite(target) || Number.isNaN(target);
+  const labelList = [labels.days, labels.hours, labels.minutes, labels.seconds];
 
   if (!mounted) {
     return (
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4" aria-hidden>
-        {[labels.days, labels.hours, labels.minutes, labels.seconds].map((label) => (
-          <div
-            key={label}
-            className="rounded-2xl border border-gold/30 bg-white/70 px-4 py-7 text-center shadow-md shadow-wine/5 backdrop-blur"
-          >
-            <div className="font-display text-4xl font-bold text-wine/20 sm:text-5xl">--</div>
-            <div className="mt-3 h-px w-8 mx-auto bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
-            <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.28em] text-wine/40">{label}</div>
+      <div className="flex items-end justify-center gap-3 sm:gap-5" aria-hidden>
+        {labelList.map((label, i) => (
+          <div key={label} className="flex items-end gap-3 sm:gap-5">
+            <Unit value="--" label={label} muted />
+            {i < labelList.length - 1 && <Colon />}
           </div>
         ))}
       </div>
     );
   }
 
-  if (invalid) {
+  if (!Number.isFinite(target) || Number.isNaN(target)) {
     return (
       <p className="text-center text-sm text-ink/60" role="status">
-        Countdown unavailable — check <code className="rounded bg-white/80 px-1">mainEvent.countdownIso</code> in
-        content.
+        Countdown unavailable —{" "}
+        <code className="rounded bg-white/80 px-1">mainEvent.countdownIso</code>
       </p>
     );
   }
 
   const diff = Math.max(0, target - now);
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
   const cells = [
-    { value: pad(days), label: labels.days },
-    { value: pad(hours), label: labels.hours },
-    { value: pad(minutes), label: labels.minutes },
-    { value: pad(seconds), label: labels.seconds },
+    { value: pad(Math.floor(diff / (1000 * 60 * 60 * 24))), label: labels.days },
+    { value: pad(Math.floor((diff / (1000 * 60 * 60)) % 24)), label: labels.hours },
+    { value: pad(Math.floor((diff / (1000 * 60)) % 60)), label: labels.minutes },
+    { value: pad(Math.floor((diff / 1000) % 60)), label: labels.seconds },
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-      {cells.map((cell) => (
-        <div
-          key={cell.label}
-          className="rounded-2xl border border-gold/30 bg-white/70 px-4 py-7 text-center shadow-md shadow-wine/5 backdrop-blur"
-        >
-          <div className="gold-gradient-text font-display text-4xl font-bold sm:text-5xl">{cell.value}</div>
-          <div className="mt-3 h-px w-8 mx-auto bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
-          <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.28em] text-wine/60">{cell.label}</div>
+    <div className="flex items-end justify-center gap-3 sm:gap-5">
+      {cells.map((cell, i) => (
+        <div key={cell.label} className="flex items-end gap-3 sm:gap-5">
+          <Unit value={cell.value} label={cell.label} />
+          {i < cells.length - 1 && <Colon />}
         </div>
       ))}
     </div>

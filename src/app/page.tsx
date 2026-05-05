@@ -107,19 +107,24 @@ export default function Home() {
       />
 
       {/* Countdown */}
-      <section className="mx-auto max-w-5xl px-6 py-20 text-center sm:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">Save the date</p>
-        <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl md:text-[2.5rem]">
-          {c.countdown.heading}
-        </h2>
-        <div className="mx-auto mt-4 flex items-center gap-4 max-w-xs">
-          <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/15" aria-hidden />
-          <span className="text-gold/50 text-xs">✦</span>
-          <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
-        </div>
-        <p className="mx-auto mt-3 max-w-lg font-display italic text-ink/55">{c.countdown.subheading}</p>
-        <div className="mt-12">
-          <Countdown targetIso={c.mainEvent.countdownIso} labels={c.countdown.labels} />
+      <section className="px-6 py-24 sm:px-8">
+        <div className="mx-auto max-w-xl">
+          <div className="glass-card overflow-hidden">
+            <div className="h-[4px] w-full bg-gradient-to-r from-gold/30 via-gold-light via-50% to-gold/30" />
+            <div className="px-8 pb-10 pt-8 text-center sm:px-12">
+              <p className="text-[9px] font-bold uppercase tracking-[0.55em] text-gold/60">Save the date</p>
+              <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-wine sm:text-3xl">{c.countdown.heading}</h2>
+              <div className="mx-auto mt-3 flex w-40 items-center gap-3">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/30" />
+                <span className="text-[10px] text-gold/40">✦</span>
+                <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/30" />
+              </div>
+              <p className="mx-auto mt-2 font-display text-sm italic text-ink/40">{c.countdown.subheading}</p>
+              <div className="mt-8">
+                <Countdown targetIso={c.mainEvent.countdownIso} labels={c.countdown.labels} />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
