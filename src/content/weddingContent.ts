@@ -79,8 +79,8 @@ export const weddingContent = {
    * Arrows move slides; autoplay advances every `autoplayIntervalMs` (default 4s).
    */
   coupleGallery: {
-    heading: "Megha & Sreedev",
-    subheading: "Moments we cannot wait to share with you",
+    heading: "A Glimpse of Us",
+    subheading: "Before forever begins",
     autoplayIntervalMs: 4000,
     images: [
       {

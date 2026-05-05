@@ -42,7 +42,7 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
 
   return (
     <section
-      className="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
+      className="relative overflow-hidden px-4 py-6 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -51,12 +51,12 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
       }}
     >
       <div className="mx-auto max-w-5xl">
-        <div className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">Gallery</p>
-          <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+        <div className="mb-4 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">A Glimpse of Us</p>
+          <h2 className="mt-1 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             <span className="gold-gradient-text">{heading}</span>
           </h2>
-          {subheading ? <p className="mt-2 font-display italic text-ink/55">{subheading}</p> : null}
+          {subheading ? <p className="mt-1 font-display italic text-ink/55">{subheading}</p> : null}
         </div>
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/40 shadow-2xl shadow-wine/10 ring-1 ring-wine/5 backdrop-blur-xl">

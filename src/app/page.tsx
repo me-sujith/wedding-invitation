@@ -2,6 +2,7 @@
 import React from "react";
 import { Countdown } from "@/components/Countdown";
 import { CouplePhotoCarousel } from "@/components/CouplePhotoCarousel";
+import { NavBar } from "@/components/NavBar";
 import { weddingContent as c } from "@/content/weddingContent";
 
 function ParentsLines({ text }: { text: string }) {
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <main className="mesh-modern pattern-soft min-h-screen overflow-x-hidden">
+      <NavBar />
       {/* Hero */}
       <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-24 text-center">
         <div className="pointer-events-none absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-gold/20 blur-3xl sm:h-96 sm:w-96" aria-hidden />
@@ -99,19 +101,21 @@ export default function Home() {
       </section>
       {/* Tagline — hidden */}
 
-      <CouplePhotoCarousel
-        heading={c.coupleGallery.heading}
-        subheading={c.coupleGallery.subheading}
-        images={c.coupleGallery.images}
-        autoplayIntervalMs={c.coupleGallery.autoplayIntervalMs}
-      />
+      <div id="gallery">
+        <CouplePhotoCarousel
+          heading={c.coupleGallery.heading}
+          subheading={c.coupleGallery.subheading}
+          images={c.coupleGallery.images}
+          autoplayIntervalMs={c.coupleGallery.autoplayIntervalMs}
+        />
+      </div>
 
       {/* Countdown */}
-      <section className="px-6 py-24 sm:px-8">
+      <section className="px-6 py-12 sm:px-8">
         <div className="mx-auto max-w-xl">
           <div className="glass-card overflow-hidden">
             <div className="h-[4px] w-full bg-gradient-to-r from-gold/30 via-gold-light via-50% to-gold/30" />
-            <div className="px-8 pb-10 pt-8 text-center sm:px-12">
+            <div className="px-8 pb-6 pt-5 text-center sm:px-12">
               <p className="text-[9px] font-bold uppercase tracking-[0.55em] text-gold/60">Save the date</p>
               <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-wine sm:text-3xl">{c.countdown.heading}</h2>
               <div className="mx-auto mt-3 flex w-40 items-center gap-3">
@@ -120,7 +124,7 @@ export default function Home() {
                 <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/30" />
               </div>
               <p className="mx-auto mt-2 font-display text-sm italic text-ink/40">{c.countdown.subheading}</p>
-              <div className="mt-8">
+              <div className="mt-4">
                 <Countdown targetIso={c.mainEvent.countdownIso} labels={c.countdown.labels} />
               </div>
             </div>
@@ -129,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section className="px-6 py-24 sm:px-8">
+      <section className="px-6 py-12 sm:px-8">
         <div className="mx-auto max-w-5xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-gold">Our families</p>
           <h2 className="mt-2 text-center font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">{c.about.heading}</h2>
@@ -140,12 +144,12 @@ export default function Home() {
           </div>
 
           {/* Single unified card — two halves */}
-          <div className="glass-card mx-auto mt-14 max-w-3xl overflow-hidden">
+          <div className="glass-card mx-auto mt-6 max-w-3xl overflow-hidden">
             <div className="h-[4px] w-full bg-gradient-to-r from-gold/30 via-gold-light via-50% to-gold/30" />
             <div className="flex flex-col sm:flex-row">
 
               {/* Bride */}
-              <div className="relative flex flex-1 flex-col items-center px-10 py-12 text-center">
+              <div className="relative flex flex-1 flex-col items-center px-8 py-7 text-center">
                 <div className="pointer-events-none absolute inset-0"
                   style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.08) 0%, transparent 60%)" }}
                   aria-hidden />
@@ -174,7 +178,7 @@ export default function Home() {
                   <span className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/25" />
                 </div>
                 {/* Desktop: vertical */}
-                <div className="hidden sm:flex flex-col items-center gap-3 py-12">
+                <div className="hidden sm:flex flex-col items-center gap-3 py-7">
                   <div className="w-px flex-1 bg-gradient-to-b from-transparent to-gold/25" />
                   <span className="font-display text-lg text-gold/40">✦</span>
                   <div className="w-px flex-1 bg-gradient-to-t from-transparent to-gold/25" />
@@ -182,7 +186,7 @@ export default function Home() {
               </div>
 
               {/* Groom */}
-              <div className="relative flex flex-1 flex-col items-center px-10 py-12 text-center">
+              <div className="relative flex flex-1 flex-col items-center px-8 py-7 text-center">
                 <div className="pointer-events-none absolute inset-0"
                   style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.08) 0%, transparent 60%)" }}
                   aria-hidden />
@@ -213,7 +217,7 @@ export default function Home() {
       </section>
 
       {/* Ceremonies */}
-      <section className="px-6 py-24 sm:px-8">
+      <section id="ceremonies" className="px-6 py-12 sm:px-8">
         <div className="mx-auto max-w-5xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.35em] text-gold">Schedule</p>
           <h2 className="mt-2 text-center font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">
@@ -225,7 +229,7 @@ export default function Home() {
             <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
           </div>
 
-          <div className="mx-auto mt-14 flex flex-col gap-8 max-w-4xl">
+          <div className="mx-auto mt-6 flex flex-col gap-4 max-w-4xl">
             {c.ceremonies.items.map((ev) => {
               const isWedding = ev.id === "vivah";
               return (
@@ -235,7 +239,7 @@ export default function Home() {
 
                 <div className="flex flex-col sm:flex-row">
                   {/* Left identity panel */}
-                  <div className="relative flex shrink-0 flex-col items-center justify-center gap-3 border-b border-wine/[0.07] px-8 py-10 text-center sm:w-56 sm:border-b-0 sm:border-r sm:py-12">
+                  <div className="relative flex shrink-0 flex-col items-center justify-center gap-3 border-b border-wine/[0.07] px-6 py-6 text-center sm:w-56 sm:border-b-0 sm:border-r sm:py-8">
                     <div className="pointer-events-none absolute inset-0"
                       style={{ background: "radial-gradient(ellipse at 50% 35%, rgba(184,134,11,0.13) 0%, transparent 70%)" }}
                       aria-hidden />
@@ -281,7 +285,7 @@ export default function Home() {
                   {/* Middle: details */}
                   <div className="flex flex-1 flex-col justify-center divide-y divide-wine/[0.06] px-8 sm:px-10">
                     {/* Date row */}
-                    <div className="flex items-center gap-4 py-5">
+                    <div className="flex items-center gap-4 py-3">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/[0.07]">
                         <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
                       </div>
@@ -291,7 +295,7 @@ export default function Home() {
                       </div>
                     </div>
                     {/* Time row */}
-                    <div className="flex items-center gap-4 py-5">
+                    <div className="flex items-center gap-4 py-3">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/[0.07]">
                         <svg className="h-4 w-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
                       </div>
@@ -301,7 +305,7 @@ export default function Home() {
                       </div>
                     </div>
                     {/* Venue row */}
-                    <div className="flex items-center gap-4 py-5">
+                    <div className="flex items-center gap-4 py-3">
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-wine/15 bg-wine/[0.05]">
                         <svg className="h-4 w-4 text-wine/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
                       </div>
@@ -314,7 +318,7 @@ export default function Home() {
 
                   {/* Right: QR */}
                   {ev.mapsQueryOrUrl ? (
-                    <div className="flex flex-col items-center justify-center gap-3 border-t border-wine/[0.07] bg-gradient-to-b from-gold/[0.05] to-transparent px-8 py-8 sm:w-48 sm:border-l sm:border-t-0 sm:px-6">
+                    <div className="flex flex-col items-center justify-center gap-3 border-t border-wine/[0.07] bg-gradient-to-b from-gold/[0.05] to-transparent px-6 py-5 sm:w-48 sm:border-l sm:border-t-0 sm:px-5">
                       <p className="text-[9px] font-bold uppercase tracking-[0.35em] text-ink/35">Scan / Tap</p>
                       <a
                         href={ev.mapsQueryOrUrl}
@@ -346,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* Quote */}
-      <section className="border-y border-gold/15 bg-gradient-to-b from-cream/80 to-white/40 px-6 py-20 text-center sm:px-8">
+      <section className="border-y border-gold/15 bg-gradient-to-b from-cream/80 to-white/40 px-6 py-10 text-center sm:px-8">
         <div className="flex flex-col items-center">
           <p className="gold-gradient-text font-display text-5xl" style={{filter:'drop-shadow(0 1px 8px rgba(184,134,11,0.3))'}}>{c.quote.symbol}</p>
           <div className="mt-3 flex items-center gap-4 max-w-xs mx-auto">
@@ -367,7 +371,7 @@ export default function Home() {
       </section>
 
       {/* Join */}
-      <section className="mx-auto max-w-5xl px-6 py-24 text-center sm:px-8">
+      <section id="rsvp" className="mx-auto max-w-5xl px-6 py-12 text-center sm:px-8">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">{c.join.sectionLabel}</p>
         <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight text-wine sm:text-4xl">{c.join.heading}</h2>
         <div className="mx-auto mt-3 flex items-center gap-4 max-w-xs">
@@ -376,7 +380,7 @@ export default function Home() {
           <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/15" aria-hidden />
         </div>
         <p className="mx-auto mt-3 max-w-lg font-display italic text-ink/55">{c.join.subheading}</p>
-        <div className="mx-auto mt-12 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-6 grid max-w-xl grid-cols-1 gap-4 sm:grid-cols-2">
           {/* RSVP Form */}
           <a
             href={c.join.rsvp.href}
