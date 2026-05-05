@@ -16,57 +16,87 @@ export default function Home() {
   return (
     <main className="mesh-modern pattern-soft min-h-screen overflow-x-hidden">
       {/* Hero */}
-      <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-28 text-center">
-        <div
-          className="pointer-events-none absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-gold/25 blur-3xl sm:h-96 sm:w-96"
-          aria-hidden
-        />
-        <div
-          className="pointer-events-none absolute -right-16 bottom-1/4 h-80 w-80 rounded-full bg-wine/20 blur-3xl sm:h-[28rem] sm:w-[28rem]"
-          aria-hidden
-        />
-        <div className="relative z-[1] max-w-4xl">
-          {/* OM Logo */}
-          <div className="flex flex-col items-center">
-            <p className="gold-gradient-text font-display text-7xl sm:text-8xl" style={{filter:'drop-shadow(0 2px 16px rgba(184,134,11,0.45))' }}>{c.mantra.symbol}</p>
-            <span className="mt-1 block h-px w-16 bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden />
-            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.5em] text-gold/70 sm:text-[11px]">
-              {c.mantra.line}
+      <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-24 text-center">
+        <div className="pointer-events-none absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-gold/20 blur-3xl sm:h-96 sm:w-96" aria-hidden />
+        <div className="pointer-events-none absolute -right-16 bottom-1/3 h-80 w-80 rounded-full bg-wine/15 blur-3xl sm:h-[28rem] sm:w-[28rem]" aria-hidden />
+
+        <div className="relative z-[1] flex max-w-sm flex-col items-center sm:max-w-xl">
+
+          {/* OM medallion */}
+          <div className="relative flex items-center justify-center">
+            {/* Outer ring */}
+            <svg viewBox="0 0 130 130" fill="none" className="absolute h-[130px] w-[130px]" aria-hidden>
+              <circle cx="65" cy="65" r="60" stroke="url(#omr1)" strokeWidth="1" strokeDasharray="4 6" opacity="0.45"/>
+              <circle cx="65" cy="65" r="52" stroke="url(#omr1)" strokeWidth="0.6" opacity="0.25"/>
+              <defs>
+                <linearGradient id="omr1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#7a5200"/><stop offset="100%" stopColor="#c9960a"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <p className="gold-gradient-text font-display text-[5.5rem] leading-none sm:text-[6.5rem]"
+               style={{ filter: 'drop-shadow(0 2px 18px rgba(184,134,11,0.5))' }}>
+              {c.mantra.symbol}
             </p>
           </div>
 
-          {/* Divider */}
-          <div className="mx-auto mt-10 flex items-center gap-4 max-w-xs">
-            <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/20" aria-hidden />
-            <span className="text-wine/30 text-xs">✦</span>
-            <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/20" aria-hidden />
+          <p className="mt-5 text-[9px] font-semibold uppercase tracking-[0.55em] text-gold/60">{c.mantra.line}</p>
+
+          {/* Ornamental separator */}
+          <div className="mt-8 flex w-48 items-center gap-3">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/35" />
+            <svg viewBox="0 0 32 12" fill="none" className="h-3 w-8 shrink-0" aria-hidden>
+              <path d="M16 6 C13 2 8 1 6 3.5 C4 6 6 10 9 9 C12 8 13 6 16 6 C19 6 20 8 23 9 C26 10 28 6 26 3.5 C24 1 19 2 16 6Z" fill="url(#sep1)" opacity="0.6"/>
+              <defs><linearGradient id="sep1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#7a5200"/><stop offset="50%" stopColor="#c9960a"/><stop offset="100%" stopColor="#a87200"/></linearGradient></defs>
+            </svg>
+            <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/35" />
           </div>
 
-          <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.28em] text-wine/80 sm:text-[11px] sm:tracking-[0.38em]">{c.familiesLine}</p>
-          <h1 className="mt-4 font-display font-bold leading-[1.15] tracking-tight text-wine" style={{ fontSize: 'clamp(1rem, 5.5vw, 3.5rem)' }}>
-            <span className="gold-gradient-text">{c.couple.bride}</span>
-            <span className="mx-1 inline-block font-semibold text-wine/70 sm:mx-3">{c.couple.conjunction}</span>
-            <span className="gold-gradient-text">{c.couple.groom}</span>
+          {/* Together line */}
+          <p className="mt-7 text-[9px] font-medium uppercase tracking-[0.42em] text-wine/35">{c.familiesLine}</p>
+
+          {/* Names — stacked for impact */}
+          <h1 className="mt-3 font-display font-bold tracking-tight text-wine leading-[1.1]">
+            <span className="gold-gradient-text block" style={{ fontSize: 'clamp(2rem, 8.5vw, 3.75rem)', filter: 'drop-shadow(0 1px 8px rgba(184,134,11,0.2))' }}>
+              {c.couple.bride}
+            </span>
+            <span className="block font-display text-xl font-light text-wine/35 my-1 tracking-widest sm:text-2xl">&</span>
+            <span className="gold-gradient-text block" style={{ fontSize: 'clamp(2rem, 8.5vw, 3.75rem)', filter: 'drop-shadow(0 1px 8px rgba(184,134,11,0.2))' }}>
+              {c.couple.groom}
+            </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl font-display text-sm italic leading-relaxed text-ink/60 sm:mt-6 sm:text-lg">{c.inviteLine}</p>
 
-          {/* Date card */}
-          <div className="mx-auto mt-10 max-w-md rounded-2xl border border-gold/20 bg-white/55 px-8 py-7 shadow-glow backdrop-blur-md">
-            <p className="gold-gradient-text font-display text-2xl font-semibold sm:text-3xl">{c.mainEvent.dateShort}</p>
-            <p className="mt-1 text-sm font-medium tracking-wide text-ink/50 sm:text-base">{c.mainEvent.weekdayTimeLine}</p>
-            <div className="mx-auto mt-4 h-px w-20 bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
-            <div className="mt-4">
-              <p className="font-display text-xl font-semibold text-wine">{c.mainEvent.venueName}</p>
-              <p className="mt-1 text-sm tracking-wide text-ink/45">{c.mainEvent.venueArea}</p>
+          <p className="mx-auto mt-5 max-w-xs font-display text-sm italic leading-relaxed text-ink/45 sm:text-base">{c.inviteLine}</p>
+
+          {/* Date + venue card */}
+          <div className="relative mx-auto mt-9 w-full max-w-[280px] overflow-hidden rounded-[1.75rem] border border-gold/25 bg-white/60 shadow-xl shadow-wine/[0.07] backdrop-blur-md">
+            <div className="h-[2.5px] w-full bg-gradient-to-r from-transparent via-gold-light to-transparent" />
+            <div className="pointer-events-none absolute inset-0 m-3 rounded-[1.3rem] border border-gold/[0.10]" aria-hidden />
+            <div className="flex flex-col items-center px-7 py-7 text-center">
+              <p className="text-[8px] font-bold uppercase tracking-[0.6em] text-gold/45">Wedding Day</p>
+              <p className="mt-2 gold-gradient-text font-display text-[2.4rem] font-bold leading-none"
+                 style={{ filter: 'drop-shadow(0 1px 8px rgba(184,134,11,0.22))' }}>
+                {c.mainEvent.dateShort}
+              </p>
+              <p className="mt-1.5 text-[9px] font-semibold uppercase tracking-[0.38em] text-ink/38">{c.mainEvent.weekdayTimeLine}</p>
+              <div className="mt-4 flex w-full items-center gap-2">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent to-gold/25" />
+                <span className="text-[10px] text-gold/40">✦</span>
+                <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gold/25" />
+              </div>
+              <p className="mt-4 font-display text-lg font-semibold text-wine">{c.mainEvent.venueName}</p>
+              <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.42em] text-ink/38">{c.mainEvent.venueArea}</p>
             </div>
+            <div className="h-[2.5px] w-full bg-gradient-to-r from-transparent via-gold-light to-transparent" />
           </div>
+
         </div>
-        <div className="absolute bottom-8 flex flex-col items-center gap-2 text-ink/35">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.35em]">{c.footer.scrollHint}</span>
-          <span className="block h-10 w-px rounded-full bg-gradient-to-b from-gold/60 to-transparent" aria-hidden />
+
+        <div className="absolute bottom-8 flex flex-col items-center gap-2 text-ink/30">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.4em]">{c.footer.scrollHint}</span>
+          <span className="block h-10 w-px rounded-full bg-gradient-to-b from-gold/50 to-transparent" aria-hidden />
         </div>
       </section>
-
       {/* Tagline — hidden */}
 
       <CouplePhotoCarousel

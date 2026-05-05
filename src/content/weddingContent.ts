@@ -118,6 +118,11 @@ export const weddingContent = {
         src: "/main/IMG-20260504-WA0028.jpg",
         alt: "Megha & Sreedev",
       },
+      {
+        id: "g8",
+        src: "/main/IMG_0224.JPG",
+        alt: "Megha & Sreedev",
+      },
     ] satisfies CoupleGalleryImage[],
   },
 
