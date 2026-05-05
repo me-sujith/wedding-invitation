@@ -42,7 +42,7 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
 
   return (
     <section
-      className="relative px-4 py-16 sm:px-6 lg:px-8"
+      className="relative overflow-hidden px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -60,7 +60,7 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
         </div>
 
         <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/40 shadow-2xl shadow-wine/10 ring-1 ring-wine/5 backdrop-blur-xl">
-          <div className="relative aspect-[4/5] w-full sm:aspect-[16/10] lg:aspect-[2/1]">
+          <div className="relative aspect-[3/4] w-full sm:aspect-[16/10] lg:aspect-[2/1]">
             {/* Stack all slides so the next frame is already decoded — avoids blank flash on swap (no unmount/remount). */}
             {images.map((img, i) => (
               <Image
@@ -68,7 +68,7 @@ export function CouplePhotoCarousel({ heading, subheading, images, autoplayInter
                 src={img.src}
                 alt={i === safeIndex ? img.alt : ""}
                 fill
-                className={`object-cover object-center ${
+                className={`object-cover object-[center_30%] ${
                   i === safeIndex ? "z-[2] opacity-100" : "z-[1] opacity-0"
                 }`}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"

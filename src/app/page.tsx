@@ -13,7 +13,7 @@ export default function Home() {
   const coupleTitle = `${c.couple.bride} ${c.couple.conjunction} ${c.couple.groom}`;
 
   return (
-    <main className="mesh-modern pattern-soft min-h-screen">
+    <main className="mesh-modern pattern-soft min-h-screen overflow-x-hidden">
       {/* Hero */}
       <section className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-28 text-center">
         <div
@@ -25,23 +25,38 @@ export default function Home() {
           aria-hidden
         />
         <div className="relative z-[1] max-w-4xl">
-          <p className="font-display text-5xl text-gold-light sm:text-6xl">{c.mantra.symbol}</p>
-          <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.42em] text-ink/45 sm:text-xs">
-            {c.mantra.line}
-          </p>
-          <p className="mt-12 text-xs font-semibold uppercase tracking-[0.3em] text-wine/75">{c.familiesLine}</p>
-          <h1 className="mt-5 font-display text-[2.35rem] font-semibold leading-[1.15] tracking-tight text-wine sm:text-5xl md:text-6xl lg:text-[3.5rem]">
+          {/* OM Logo */}
+          <div className="flex flex-col items-center">
+            <p className="gold-gradient-text font-display text-7xl sm:text-8xl" style={{filter:'drop-shadow(0 2px 16px rgba(184,134,11,0.45))' }}>{c.mantra.symbol}</p>
+            <span className="mt-1 block h-px w-16 bg-gradient-to-r from-transparent via-gold/50 to-transparent" aria-hidden />
+            <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.5em] text-gold/70 sm:text-[11px]">
+              {c.mantra.line}
+            </p>
+          </div>
+
+          {/* Divider */}
+          <div className="mx-auto mt-10 flex items-center gap-4 max-w-xs">
+            <span className="flex-1 h-px bg-gradient-to-r from-transparent to-wine/20" aria-hidden />
+            <span className="text-wine/30 text-xs">✦</span>
+            <span className="flex-1 h-px bg-gradient-to-l from-transparent to-wine/20" aria-hidden />
+          </div>
+
+          <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.38em] text-wine/80">{c.familiesLine}</p>
+          <h1 className="mt-4 font-display text-[2.35rem] font-bold leading-[1.15] tracking-tight text-wine sm:text-5xl md:text-6xl lg:text-[3.5rem]">
             <span className="gold-gradient-text">{c.couple.bride}</span>
-            <span className="mx-2 inline-block text-gold-muted">{c.couple.conjunction}</span>
+            <span className="mx-3 inline-block font-semibold text-wine/70">{c.couple.conjunction}</span>
             <span className="gold-gradient-text">{c.couple.groom}</span>
           </h1>
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-ink/65">{c.inviteLine}</p>
-          <div className="mx-auto mt-12 max-w-md rounded-2xl border border-white/50 bg-white/50 px-8 py-6 shadow-glow backdrop-blur-md">
-            <p className="font-display text-2xl font-medium text-wine sm:text-3xl">{c.mainEvent.dateShort}</p>
-            <p className="mt-2 text-sm font-medium text-ink/55 sm:text-base">{c.mainEvent.weekdayTimeLine}</p>
-            <div className="mt-5 border-t border-wine/10 pt-5">
-              <p className="font-display text-xl text-ink/90">{c.mainEvent.venueName}</p>
-              <p className="mt-1 text-sm text-ink/50">{c.mainEvent.venueArea}</p>
+          <p className="mx-auto mt-6 max-w-xl font-display text-base italic leading-relaxed text-ink/60 sm:text-lg">{c.inviteLine}</p>
+
+          {/* Date card */}
+          <div className="mx-auto mt-10 max-w-md rounded-2xl border border-gold/20 bg-white/55 px-8 py-7 shadow-glow backdrop-blur-md">
+            <p className="gold-gradient-text font-display text-2xl font-semibold sm:text-3xl">{c.mainEvent.dateShort}</p>
+            <p className="mt-1 text-sm font-medium tracking-wide text-ink/50 sm:text-base">{c.mainEvent.weekdayTimeLine}</p>
+            <div className="mx-auto mt-4 h-px w-20 bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
+            <div className="mt-4">
+              <p className="font-display text-xl font-semibold text-wine">{c.mainEvent.venueName}</p>
+              <p className="mt-1 text-sm tracking-wide text-ink/45">{c.mainEvent.venueArea}</p>
             </div>
           </div>
         </div>
@@ -51,28 +66,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tagline */}
-      <section className="relative border-y border-white/10 bg-gradient-to-br from-wine via-wine to-[#2a1018] px-6 py-24 text-center text-cream">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay"
-          style={{
-            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-          }}
-          aria-hidden
-        />
-        <div className="relative z-[1] mx-auto max-w-3xl">
-          <p className="font-display text-3xl font-medium sm:text-4xl md:text-5xl">{c.heroTagline.line1}</p>
-          <p className="font-display text-3xl font-semibold text-gold-light sm:text-4xl md:text-5xl">
-            {c.heroTagline.line2}
-          </p>
-          <p className="mt-10 text-xs font-medium uppercase tracking-[0.35em] text-cream/55">{c.mainEvent.dateShort}</p>
-          <p className="mt-4 font-display text-2xl text-gold-light sm:text-3xl">{c.heroTagline.footerNames}</p>
-          <p className="mt-2 text-cream/75">{c.heroTagline.footerLine}</p>
-          <p className="mt-10 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-6 py-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-light/95 backdrop-blur-sm">
-            {c.heroTagline.locationBadge}
-          </p>
-        </div>
-      </section>
+      {/* Tagline — hidden */}
 
       <CouplePhotoCarousel
         heading={c.coupleGallery.heading}
@@ -106,8 +100,8 @@ export default function Home() {
                 <span className="text-4xl" aria-hidden>
                   {p.emoji}
                 </span>
-                <h3 className="mt-5 font-display text-2xl font-semibold text-wine">{p.name}</h3>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-ink/45">{p.relationLabel}</p>
+                <h3 className="mt-5 font-display text-2xl font-semibold gold-gradient-text">{p.name}</h3>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-wine/50">{p.relationLabel}</p>
                 <ParentsLines text={p.parents} />
               </article>
             ))}
@@ -218,7 +212,12 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-wine/10 bg-wine/[0.03] py-12 text-center">
-        <p className="font-display text-lg font-medium text-wine/65">{coupleTitle}</p>
+        <p className="font-display text-2xl font-semibold tracking-tight">
+          <span className="gold-gradient-text">{c.couple.bride}</span>
+          <span className="mx-2 text-gold-muted">{c.couple.conjunction}</span>
+          <span className="gold-gradient-text">{c.couple.groom}</span>
+        </p>
+        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.3em] text-wine/50">Forever begins here</p>
       </footer>
     </main>
   );

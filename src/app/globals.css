@@ -18,7 +18,8 @@ body {
 }
 
 .gold-gradient-text {
-  @apply bg-gradient-to-r from-gold via-gold-light to-gold-muted bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-[#7a5200] via-[#c9960a] to-[#a87200] bg-clip-text text-transparent;
+  filter: drop-shadow(0 1px 6px rgba(184, 134, 11, 0.30));
 }
 
 .pattern-soft {

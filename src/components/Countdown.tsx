@@ -32,10 +32,11 @@ export function Countdown({ targetIso, labels }: Props) {
         {[labels.days, labels.hours, labels.minutes, labels.seconds].map((label) => (
           <div
             key={label}
-            className="rounded-2xl border border-gold/25 bg-white/60 px-4 py-6 text-center shadow-sm backdrop-blur"
+            className="rounded-2xl border border-gold/30 bg-white/70 px-4 py-7 text-center shadow-md shadow-wine/5 backdrop-blur"
           >
-            <div className="font-display text-4xl font-semibold text-wine/30 sm:text-5xl">--</div>
-            <div className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-ink/60">{label}</div>
+            <div className="font-display text-4xl font-bold text-wine/20 sm:text-5xl">--</div>
+            <div className="mt-3 h-px w-8 mx-auto bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
+            <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.28em] text-wine/40">{label}</div>
           </div>
         ))}
       </div>
@@ -69,10 +70,11 @@ export function Countdown({ targetIso, labels }: Props) {
       {cells.map((cell) => (
         <div
           key={cell.label}
-          className="rounded-2xl border border-gold/25 bg-white/60 px-4 py-6 text-center shadow-sm backdrop-blur"
+          className="rounded-2xl border border-gold/30 bg-white/70 px-4 py-7 text-center shadow-md shadow-wine/5 backdrop-blur"
         >
-          <div className="font-display text-4xl font-semibold text-wine sm:text-5xl">{cell.value}</div>
-          <div className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-ink/60">{cell.label}</div>
+          <div className="gold-gradient-text font-display text-4xl font-bold sm:text-5xl">{cell.value}</div>
+          <div className="mt-3 h-px w-8 mx-auto bg-gradient-to-r from-transparent via-gold/40 to-transparent" aria-hidden />
+          <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.28em] text-wine/60">{cell.label}</div>
         </div>
       ))}
     </div>
